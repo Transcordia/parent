@@ -131,9 +131,15 @@
         <!-- This plugin adds support for the S3 urls used during distribution management -->
         <extensions>
             <extension>
-                <groupId>org.springframework.build</groupId>
-                <artifactId>aws-maven</artifactId>
-                <version>4.8.0.RELEASE</version>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>1.2.1</version>
+<!--  Spring version is broken with Maven 3.1 and they don't look like they are in a
+      hurry (5 months) to fix it.
+                <groupId>org.springframework.build.aws</groupId>
+                <artifactId>org.springframework.build.aws.maven</artifactId>
+                <version>3.0.0.RELEASE</version>
+-->
             </extension>
         </extensions>
 
