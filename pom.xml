@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.transcordia</groupId>
     <artifactId>transcordia-parent</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -24,12 +22,12 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>transcordia-repo</id>
+            <id>repo.transcordia.com</id>
             <name>transcordia-repo-snapshots</name>
             <url>s3://repo.transcordia.com/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>transcordia-repo</id>
+            <id>repo.transcordia.com</id>
             <name>transcordia-repo-releases</name>
             <url>s3://repo.transcordia.com/releases</url>
         </repository>
@@ -56,6 +54,12 @@
                 <configuration>
                     <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-jgitflow-plugin</artifactId>
+                <version>1.0-alpha27</version>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -127,9 +131,15 @@
         <!-- This plugin adds support for the S3 urls used during distribution management -->
         <extensions>
             <extension>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>1.2.1</version>
+<!--  Spring version is broken with Maven 3.1 and they don't look like they are in a
+      hurry (5 months) to fix it.
                 <groupId>org.springframework.build.aws</groupId>
                 <artifactId>org.springframework.build.aws.maven</artifactId>
                 <version>3.0.0.RELEASE</version>
+-->
             </extension>
         </extensions>
 
