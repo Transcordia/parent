@@ -22,12 +22,12 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>transcordia-repo</id>
+            <id>repo.transcordia.com</id>
             <name>transcordia-repo-snapshots</name>
             <url>s3://repo.transcordia.com/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>transcordia-repo</id>
+            <id>repo.transcordia.com</id>
             <name>transcordia-repo-releases</name>
             <url>s3://repo.transcordia.com/releases</url>
         </repository>
